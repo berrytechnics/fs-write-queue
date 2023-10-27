@@ -16,16 +16,16 @@ module.exports = function FileWriter() {
     }
   };
   this.process = (dry = false) => {
+    // Check for dir and create if not exists.
+    if (fs.existsSync(`.tmp`)) {
+      fs.rmSync(`.tmp`, { recursive: true, force: true });
+    }
     // Create temporary files.
     this.queue.forEach((file) => {
       if (this.error) {
         return;
       }
       try {
-        // Check for dir and create if not exists.
-        if (fs.existsSync(`.tmp`)) {
-          fs.rmSync(`.tmp`, { recursive: true, force: true });
-        }
         this.createDir(`.tmp/${file.path}`, {
           recursive: true,
           force: true,
