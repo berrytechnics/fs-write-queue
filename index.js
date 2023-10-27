@@ -1,9 +1,8 @@
-import fs from "fs";
-export default function FileWriter(__dirname) {
+const fs = require("fs");
+module.exports = function FileWriter() {
   this.queue = [];
   this.error = false;
   this.completed = [];
-  this.__dirname = __dirname;
 
   this.add = (path, filename, data = null) => {
     this.queue.push({ path, filename, data });
@@ -89,4 +88,4 @@ export default function FileWriter(__dirname) {
   };
 
   return this;
-}
+};
