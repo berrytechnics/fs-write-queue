@@ -23,12 +23,13 @@ module.exports = function FileWriter() {
       }
       try {
         // Check for dir and create if not exists.
-        if (!fs.existsSync(`.tmp/${file.path}`)) {
-          this.createDir(`.tmp/${file.path}`, {
-            recursive: true,
-            force: true,
-          });
+        if (fs.existsSync(`.tmp/${file.path}`)) {
+          fs.rmSync(`.tmp/${file.path}`, { recursive: true, force: true });
         }
+        this.createDir(`.tmp/${file.path}`, {
+          recursive: true,
+          force: true,
+        });
         // Create file.
         file.data &&
           fs.writeFileSync(`.tmp/${file.path}/${file.filename}`, file.data, {
