@@ -1,0 +1,19 @@
+{
+  "name": "fs-write-queue",
+  "version": "0.0.1",
+  "description": "A Queueing system for transactional writes with nodes filesystem package.",
+  "type":"module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fs",
+    "transaction",
+    "queue",
+    "filesystem",
+    "write"
+  ],
+  "author": "J. Kyle Berry",
+  "license": "MIT"
+}
